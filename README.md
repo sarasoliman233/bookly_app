@@ -18,8 +18,6 @@ The app includes modern UI, smooth navigation, detailed book views, and categori
 ▪️ Navigate between multiple views using GoRouter.
 ▪️ Book rating widget, custom bottom navigation bar, and custom components.
 ▪️ Error handling and loading indicators using Cubit and BlocBuilder.
-▪️ Launch external preview links using `url_launcher`.
-
 
 
 🛠️ Technologies Used
@@ -30,4 +28,3 @@ The app includes modern UI, smooth navigation, detailed book views, and categori
 ▪️ Custom Widgets – Reusable UI components for better modularity.
 ▪️ Google Books API – External RESTful API used for fetching book data.
 ▪️ MediaQuery & Responsive Layouts – For adaptive design across devices.
-▪️ url_launcher – To open external URLs for book previews.

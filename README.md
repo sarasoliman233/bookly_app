@@ -1,4 +1,4 @@
-# run_way
+# Bookly App
 A beautiful and responsive Flutter app that allows users to browse, view, and explore a collection of books fetched from the Google Books API.
 The app includes modern UI, smooth navigation, detailed book views, and categorized book listings.
 ## 📸 Screenshots

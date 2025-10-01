@@ -15,6 +15,7 @@ class HomeRepoImpl extends HomeRepo {
     try {
       var data = await apiService.get(
           endPoint:
+
           'volumes?q=subject:learn&orderBy=newest'
       );
       final List<BookModel> books = [];
@@ -34,7 +35,8 @@ class HomeRepoImpl extends HomeRepo {
   Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
     try {
       var data = await apiService.get(
-          endPoint: 'volumes?q=book&orderBy=relevance&maxResults=20'
+          endPoint:
+          'volumes?q=book&orderBy=relevance&maxResults=20'
 
       );
       final List<BookModel> books = [];
@@ -56,6 +58,7 @@ class HomeRepoImpl extends HomeRepo {
     try {
       var data = await apiService.get(
           endPoint:
+
           'volumes?q=subject:$category&orderBy=relevance',
       );
       final List<BookModel> books = [];

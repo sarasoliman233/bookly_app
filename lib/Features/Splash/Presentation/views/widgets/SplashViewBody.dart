@@ -76,7 +76,7 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
       // Get.to(()=> Homeview(),
       //     transition: Transition.rightToLeft,
       //     duration: Duration(microseconds: 250));
-      GoRouter.of(context).push('/homeView');
+      GoRouter.of(context).go('/homeView');
     });
   }
 

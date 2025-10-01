@@ -1,18 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:run_way/Features/home/data/models/BookModel.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../../Core/widgets/CustomButton.dart';
 
 class BooksAction extends StatelessWidget {
-  const BooksAction({super.key});
-
+  const BooksAction({super.key, required this.bookModel});
+final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: Row(
         children: [
-          Expanded(child: CustomButton(
+          Expanded(
+              child: CustomButton(
             text: 'Free',
             textColor: Colors.black,
             backgroundColor: Colors.white,
@@ -21,6 +24,25 @@ class BooksAction extends StatelessWidget {
                 bottomLeft: Radius.circular(16)),
           )),
           Expanded(child: CustomButton(
+         onPressed: () async{
+           final url = bookModel.volumeInfo?.previewLink;
+
+           if (url == null || url.isEmpty) {
+             // لو الرابط مش موجود
+             ScaffoldMessenger.of(context).showSnackBar(
+               SnackBar(content: Text("No preview link available.")),
+             );
+             return;
+           }
+
+           final uri = Uri.parse(url);
+
+           if (await canLaunchUrl(uri)) {
+             await launchUrl(uri, mode: LaunchMode.externalApplication); // ← استخدمي ده
+           } else {
+             throw Exception('Could not launch $uri');
+           }
+         },
             text: 'Free preview',
             textColor: Colors.white,
             backgroundColor: Color(0xFFEF8262),
